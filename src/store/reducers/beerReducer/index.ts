@@ -18,5 +18,7 @@ export const beerReducer = (state = initialState, action: AnyAction) => {
         beersValues: action.payload,
       }
     }
+    default :
+      return state;
   }
 }

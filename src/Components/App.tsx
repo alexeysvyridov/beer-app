@@ -1,9 +1,10 @@
 import * as React from 'react';
+import AppRouter from './AppRouter';
 
-function App():JSX.Element {
+function App(): JSX.Element {
   return (
     <div className="App">
-     app
+      <AppRouter />
     </div>
   );
 }
