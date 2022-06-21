@@ -10,6 +10,8 @@ export const Container = styled.div`
   padding: 16px;
   gap: 10px;
   width 600px;
+  margin: 0px auto;
+  margin-top: 25px;
 `;
 export const IconWrapper = styled.div`
   width: 25px;

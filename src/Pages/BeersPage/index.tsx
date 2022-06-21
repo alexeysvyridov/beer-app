@@ -12,6 +12,6 @@ export const BeersPage = (): JSX.Element => {
     dispatch({ type: ACTION_TYPES.GET_BEERS_FETCH })
   }, [])
   return (
-    <Beers data={beers} />
+    <Beers beers={beers} />
   )
 }
