@@ -8,6 +8,10 @@ export const Card = styled.div`
   padding: 8px;
   display: flex;
   alignItems: center;
+  cursor: pointer;
+  :hover {
+    background-color: #f3f3f3;
+  }
 `;
 
 export const CardImage = styled.div<{imageUrl: string}>`
@@ -28,10 +32,11 @@ export const CardRow = styled.div`
   flex: 3;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 25px;
 `;
 
 export const Favorite = styled.button<{isFavorite: boolean}>`
-  all: unset;
   color: ${({isFavorite}) => isFavorite ? 'yellow' : 'transparent'};
   cursor: pointer;
 `;  

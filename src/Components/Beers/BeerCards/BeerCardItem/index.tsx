@@ -6,15 +6,17 @@ type BeerCardItemProps = {
   imageUrl: string,
   name: string,
   isFavorite: boolean,
+  onOpenClick: () => void,
 }
 
 export const BeerCardItem = ({
   imageUrl,
   name,
   isFavorite,
+  onOpenClick,
 }: BeerCardItemProps): JSX.Element => {
   return (
-    <Card>
+    <Card title={`Show more about ${name}`} onClick={onOpenClick}>
       <CardImage imageUrl={imageUrl} />
       <CardRow>
         <CardTitle>

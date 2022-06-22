@@ -5,6 +5,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <AppRouter />
+      <div id="modal-root"></div>
     </div>
   );
 }
