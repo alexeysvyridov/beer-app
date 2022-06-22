@@ -10,12 +10,17 @@ export const BeerCards = ({
   beers,
 }: BeerCardsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedBeer, setSelectedBeer] = useState(null);
 
   const handleOpen = () => {
     setIsOpen(true)
   }
   const handleClose = () => {
     setIsOpen(false)
+    setSelectedBeer(null)
+  }
+  const handleSetSelectedBeerse = (beer: any) => {
+    setSelectedBeer(beer)
   }
 
   return (
@@ -26,7 +31,10 @@ export const BeerCards = ({
             imageUrl={beer.image_url}
             name={beer.name}
             isFavorite
-            onOpenClick={handleOpen}
+            onOpenClick={() => {
+              handleOpen()
+              handleSetSelectedBeerse(beer)
+            }}
           />
         )
       })}
@@ -34,6 +42,7 @@ export const BeerCards = ({
         <BeerModal
           isOpen={isOpen}
           onCloseClick={handleClose}
+          selectedBeer={selectedBeer}
         />
       )}
     </CardsContainer>

@@ -2,15 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { Portal } from '../Portal';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { ImageWrapper, ModalContainer, ModalContent, ModalTitle } from './styled';
+import { Description, Image, ImageWrapper, ModalBody, ModalContainer, ModalContent, ModalTitle } from './styled';
 type BeerModalProps = {
   isOpen: boolean,
   onCloseClick: () => void,
+  selectedBeer?: any // to do change type
 }
 
 export const BeerModal = ({
   isOpen,
   onCloseClick,
+  selectedBeer,
 }: BeerModalProps): JSX.Element => {
   return (
     <Portal
@@ -23,10 +25,20 @@ export const BeerModal = ({
             <ModalTitle>
               <ImageWrapper onClick={onCloseClick} />
             </ModalTitle>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quae nulla dolores quos placeat deleniti ipsum debitis nemo, ut provident commodi nisi nesciunt repellendus iste. Temporibus aperiam consequatur fuga sint?
+            <Image imageUrl={selectedBeer?.image_url} />
+            <Description>
+              {selectedBeer?.description}
+            </Description>
+            <ModalBody>
+              {selectedBeer?.brewers_tips}
+            </ModalBody>
           </ModalContent>
         </ModalContainer>
       )}
     </Portal>
   )
+}
+
+BeerModal.defaultProps = {
+  selectedBeer: undefined,
 }

@@ -45,3 +45,27 @@ export const ImageWrapper = styled(CancelIcon)`
     opacity: 1;
   }
 `;
+
+export const Image = styled.div<{ imageUrl: string }>`
+  height: 250px;
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  object-fit: cover;
+`;
+export const ModalBody = styled.div`
+  margin: 48px 0px;
+  font-size: 14px;
+  line-height: 1.57;
+  letter-spacing: 0.25px;
+  opacity: 0.6;
+  font-weight: bold;
+  color: #ec0982;
+`;
+export const Description = styled.div`
+  margin: 24px 0px;
+  font-size: 24px;
+`;
