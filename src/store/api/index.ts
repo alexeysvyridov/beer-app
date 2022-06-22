@@ -9,11 +9,12 @@ interface ResponseGenerator{
   statusText?:string
 }
 // TO DO change type
-export const getBeers = async():Promise<any> => {
+export const getBeers = async(page = 1, food = undefined):Promise<any> => {
  const { data } = await axios.get(API.GET_BEERS, {
   params: {
     per_page: PER_PAGE_LIMIT,
-    page: 1,
+    page,
+    food,
   }
  });
 

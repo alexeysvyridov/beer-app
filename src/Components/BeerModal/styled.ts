@@ -25,6 +25,8 @@ export const ModalContent = styled.div`
   background-color: #fff;
   border-radius: 10px;
   padding: 24px 48px;
+  max-height: 800px;
+  overflow: auto;
 `;
 
 export const ModalTitle = styled.div`
@@ -68,4 +70,8 @@ export const ModalBody = styled.div`
 export const Description = styled.div`
   margin: 24px 0px;
   font-size: 24px;
+`;
+export const FoodItem = styled.div`
+  font-size: 32px;
+  color: #130f35;
 `;

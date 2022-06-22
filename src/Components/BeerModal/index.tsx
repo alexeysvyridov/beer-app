@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import { Portal } from '../Portal';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { Description, Image, ImageWrapper, ModalBody, ModalContainer, ModalContent, ModalTitle } from './styled';
+import { Description, FoodItem, Image, ImageWrapper, ModalBody, ModalContainer, ModalContent, ModalTitle } from './styled';
 type BeerModalProps = {
   isOpen: boolean,
   onCloseClick: () => void,
@@ -29,6 +29,13 @@ export const BeerModal = ({
             <Description>
               {selectedBeer?.description}
             </Description>
+            {selectedBeer?.food_pairing.map((food: string) => {
+              return (
+                <FoodItem>
+                  * {food}
+                </FoodItem>
+              )
+            })}
             <ModalBody>
               {selectedBeer?.brewers_tips}
             </ModalBody>

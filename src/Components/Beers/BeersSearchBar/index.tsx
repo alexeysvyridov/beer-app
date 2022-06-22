@@ -9,6 +9,10 @@ export const BeersSearchBar = (): JSX.Element => {
     setValue(e.target.value);
   }
 
+  const handleSubmit = () => {
+    // to do implement
+  }
+
   return (
     <Container>
       <IconWrapper>
@@ -19,7 +23,7 @@ export const BeersSearchBar = (): JSX.Element => {
         value={value}
         onChange={handleChangevalue}
       />
-      <ButtonSubmit type="submit">
+      <ButtonSubmit type="button" onClick={handleSubmit}>
         Submit
       </ButtonSubmit>
     </Container>

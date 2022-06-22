@@ -7,7 +7,7 @@ import { getBeers } from '../api'
 
 function* getBeersWorker(action: GetBeersAction):any {
   try {
-    const beers = yield call(getBeers)
+    const beers = yield call(getBeers, action.payload)
     yield put(getBeersSuccess(beers))
   } catch (error) {
     const errorAxios = error as AxiosError;
