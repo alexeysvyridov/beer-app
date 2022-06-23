@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API } from "../../consts"
+import { API, PER_PAGE_LIMIT } from "../../consts"
 interface ResponseGenerator{
   config?:any,
   data?:any,
@@ -8,9 +8,15 @@ interface ResponseGenerator{
   status?:number,
   statusText?:string
 }
-
-export const getBeers = async():Promise<any> => {
- const { data } = await axios.get(API.GET_BEERS);
+// TO DO change type
+export const getBeers = async(page = 1, food = undefined):Promise<any> => {
+ const { data } = await axios.get(API.GET_BEERS, {
+  params: {
+    per_page: PER_PAGE_LIMIT,
+    page,
+    food,
+  }
+ });
 
  return data;
 }

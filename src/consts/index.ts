@@ -1,3 +1,5 @@
+export const PER_PAGE_LIMIT = 12;
+ 
 export const ROUTES = {
   BROWSE_BEERS: '/beers',
   FAVORITE_BEERS: '/favorite'
