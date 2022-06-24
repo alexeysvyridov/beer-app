@@ -6,7 +6,6 @@ type BeersStateSelector = {
   isLoading: boolean,
   error?: string,
   query: string,
-  favorites: BeersValues[],
 }
 export const getBeers = (state: RootReducerState):BeersValues[] => state.beers.beersValues;
 
@@ -17,7 +16,18 @@ export const useBeersState = ():BeersStateSelector => {
       isLoading: state.beers.isLoading,
       error: state.beers.error,
       query: state.beers.query,
-      favorites: state.beers.favorites,
+      favorites: state.favorites.favorites,
+    }
+  })
+}
+type FavoritesSelector = {
+  favorites: BeersValues[],
+}
+
+export const useFavoritesState = ():FavoritesSelector => {
+  return useSelector((state: RootReducerState) => {
+    return {
+      favorites: state.favorites.favorites,
     }
   })
 }

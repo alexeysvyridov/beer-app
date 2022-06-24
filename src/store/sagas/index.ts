@@ -21,17 +21,17 @@ function* getBeersWorker(action: GetBeersAction):Generator {
   }
 }
 
-// function* addToFavoriteWorker(action: AddToFavoriteAction):Generator {
-//   try {
-//     const beers:any = yield select(getBeers);
+function* addToFavoriteWorker(action: AddToFavoriteAction):Generator {
+  try {
+    const beers:any = yield select(getBeers);
 
-//     const currentBeer = beers.find((beer: BeersValues) => beer.id === action.payload);
-
-//     yield put(addToFavorite(currentBeer));
-//   } catch (error) {
+    const currentBeer = beers.find((beer: BeersValues) => beer.id === action.payload);
     
-//   }
-// }
+    yield put(addToFavorite(currentBeer));
+  } catch (error) {
+    
+  }
+}
 
 function* watchGetBeers():Generator {
   yield takeEvery(ACTION_TYPES.GET_BEERS_FETCH, getBeersWorker);
@@ -39,13 +39,13 @@ function* watchGetBeers():Generator {
 function* watchSearchBeers():Generator {
   yield takeEvery(ACTION_TYPES.FETCH_SEARCH_BEER, getBeersWorker);
 }
-// function* watchAddToFavorite():Generator {
-//   yield takeEvery(ACTION_TYPES.ADD_TO_FAVORITE_FETCH, addToFavoriteWorker);
-// }
+function* watchAddToFavorite():Generator {
+  yield takeEvery(ACTION_TYPES.ADD_TO_FAVORITE_FETCH, addToFavoriteWorker);
+}
 export function* rootSaga():Generator {
   yield all([
     fork(watchGetBeers),
     fork(watchSearchBeers),
-    // fork(watchAddToFavorite)
+    fork(watchAddToFavorite)
   ])
 };

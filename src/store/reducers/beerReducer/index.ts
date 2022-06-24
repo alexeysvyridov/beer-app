@@ -5,14 +5,12 @@ type beerState = {
   isLoading: boolean,
   error?: string,
   query: string,
-  favorites: BeersValues[],
 }
 const initialState:beerState = {
   beersValues: [],
   isLoading: false,
   error: undefined,
   query: '',
-  favorites: [],
 }
 export const beerReducer = (state = initialState, action: AnyAction) => {
   switch(action.type) {
@@ -20,24 +18,6 @@ export const beerReducer = (state = initialState, action: AnyAction) => {
        return {
         ...state,
         isLoading: action.payload,
-      }
-    }
-    case ACTION_TYPES.ADD_TO_FAVORITE: {
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload]
-      }
-    }
-    case ACTION_TYPES.REMOVE_FAVORITE: {
-      return {
-        ...state,
-        favorites: state.favorites.filter((favorite: BeersValues) => favorite.id !== action.payload.id)
-      }
-    }
-    case ACTION_TYPES.REMOVE_FAVORITE_ALL: {
-      return {
-        ...state,
-        favorites: [],
       }
     }
     case ACTION_TYPES.GET_BEERS_FAILUR: {

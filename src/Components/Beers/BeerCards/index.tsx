@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addToFavorite, removeFromFavorite } from '../../../store/actionCreators';
-import { useBeersState } from '../../../store/selectors';
+import { useBeersState, useFavoritesState } from '../../../store/selectors';
 import { BeerModal } from '../../BeerModal';
 import { BeerCardItem } from './BeerCardItem';
 import { CardsContainer } from './styled'
@@ -16,7 +16,7 @@ export const BeerCards = ({
 }: BeerCardsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBeer, setSelectedBeer] = useState(null);
-  const { favorites } = useBeersState();
+  const { favorites } = useFavoritesState();
   const dispatch = useDispatch();
   const handleOpen = () => {
     setIsOpen(true)
