@@ -46,6 +46,7 @@ export const BeerCards = ({
         return (
           <BeerCardItem
             key={beer.id}
+            id={beer.id}
             onAddToFavorite={(e: React.FormEvent) => {
               e.stopPropagation()
               handleAddToFavorite(beer)

@@ -14,3 +14,8 @@ type BeersValues = {
   image_url: string,
   description: string,
 }
+
+type RatingObj = {
+  id: number,
+  ratingNumber: number,
+}

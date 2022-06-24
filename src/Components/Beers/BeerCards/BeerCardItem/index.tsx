@@ -3,6 +3,9 @@ import Rating from '@mui/material/Rating'
 import { Card, CardImage, CardRow, CardTitle, Favorite } from './styled'
 import StarIcon from '@mui/icons-material/Star';
 import { Stack } from '@mui/material';
+import { useFavoritesState } from '../../../../store/selectors';
+import { useDispatch } from 'react-redux';
+import { addRating } from '../../../../store/actionCreators';
 
 type BeerCardItemProps = {
   imageUrl: string,
@@ -12,6 +15,13 @@ type BeerCardItemProps = {
   onAddToFavorite: (e: React.FormEvent) => void,
   onRemoveFavorite: (e: React.FormEvent) => void,
   withRaiting: boolean | undefined,
+  id: number,
+}
+
+const findValueById = (id: number, arr: RatingObj[]) => {
+  let item = arr.find((item) => item.id === id)
+
+  return item?.ratingNumber || 0.1;
 }
 
 export const BeerCardItem = ({
@@ -22,7 +32,16 @@ export const BeerCardItem = ({
   onAddToFavorite,
   onRemoveFavorite,
   withRaiting,
+  id,
 }: BeerCardItemProps): JSX.Element => {
+
+  const { rating } = useFavoritesState();
+  const dispatch = useDispatch();
+
+  const handleChangeRating = (value: number) => {
+    dispatch(addRating({ id, ratingNumber: value }))
+  }
+
   const renderButton = () => {
     if (isFavorite) {
       return (
@@ -58,7 +77,17 @@ export const BeerCardItem = ({
       {renderButton()}
       {withRaiting && (
         <Stack spacing={1} onClick={(e) => e.stopPropagation()}>
-          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+          <Rating
+            name="half-rating"
+            defaultValue={0.5} precision={0.5}
+            value={findValueById(id, rating)}
+            onChange={(e: unknown, newValue: number | null) => {
+              if (newValue !== null) {
+
+                handleChangeRating(newValue)
+              }
+            }}
+          />
         </Stack>
       )}
     </Card>

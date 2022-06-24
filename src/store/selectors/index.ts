@@ -22,12 +22,14 @@ export const useBeersState = ():BeersStateSelector => {
 }
 type FavoritesSelector = {
   favorites: BeersValues[],
+  rating: RatingObj[],
 }
 
 export const useFavoritesState = ():FavoritesSelector => {
   return useSelector((state: RootReducerState) => {
     return {
       favorites: state.favorites.favorites,
+      rating: state.favorites.rating
     }
   })
 }

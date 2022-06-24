@@ -34,3 +34,8 @@ export const fetchFavorite = (favoriteId: string) => ({
 export const removeAllFavorites = () => ({
   type: ACTION_TYPES.REMOVE_FAVORITE_ALL,
 })
+
+export const addRating = (beerRating: RatingObj) => ({
+  type: ACTION_TYPES.ADD_RATING,
+  payload: beerRating
+})
