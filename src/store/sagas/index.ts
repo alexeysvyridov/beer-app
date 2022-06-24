@@ -22,8 +22,12 @@ function* getBeersWorker(action: GetBeersAction):any {
 function* watchGetBeers():Generator {
   yield takeEvery(ACTION_TYPES.GET_BEERS_FETCH, getBeersWorker);
 }
+function* watchSearchBeers():Generator {
+  yield takeEvery(ACTION_TYPES.FETCH_SEARCH_BEER, getBeersWorker);
+}
 export function* rootSaga():Generator {
   yield all([
-    fork(watchGetBeers)
+    fork(watchGetBeers),
+    fork(watchSearchBeers)
   ])
 };

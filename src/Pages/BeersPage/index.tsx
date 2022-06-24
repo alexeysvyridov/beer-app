@@ -7,18 +7,20 @@ import { ACTION_TYPES } from '../../store/actionTypes';
 import { useBeersState } from '../../store/selectors'
 
 export const BeersPage = (): JSX.Element => {
-  const { beers, isLoading, error } = useBeersState();
+  const { beers, isLoading, error, query } = useBeersState();
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const handleChangePage = (page: number) => {
-    console.log(page)
     setCurrentPage(page)
   }
 
   useEffect(() => {
     dispatch({
       type: ACTION_TYPES.GET_BEERS_FETCH,
-      payload: currentPage,
+      payload: {
+        currentPage,
+        food: query,
+      },
     })
   }, [currentPage])
 

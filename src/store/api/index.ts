@@ -1,5 +1,6 @@
 import axios from "axios"
 import { API, PER_PAGE_LIMIT } from "../../consts"
+import { addUnderscore } from "../../utils"
 interface ResponseGenerator{
   config?:any,
   data?:any,
@@ -8,13 +9,12 @@ interface ResponseGenerator{
   status?:number,
   statusText?:string
 }
-// TO DO change type
-export const getBeers = async(page = 1, food = undefined):Promise<any> => {
+export const getBeers = async(query: any):Promise<any> => {
  const { data } = await axios.get(API.GET_BEERS, {
   params: {
     per_page: PER_PAGE_LIMIT,
-    page,
-    food,
+    page: query?.currentPage || 1,
+    food: query?.food ? addUnderscore(query.food) : undefined,
   }
  });
 

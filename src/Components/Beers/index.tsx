@@ -25,7 +25,7 @@ export const Beers = ({
         />
         <BeersSearchBar />
       </div>
-      {true && (
+      {error && (
         <AlertStack error={error} />
       )}
       <BeerCards beers={beers} />

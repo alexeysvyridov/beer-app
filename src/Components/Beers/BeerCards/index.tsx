@@ -28,6 +28,7 @@ export const BeerCards = ({
       {beers.map((beer: any) => {
         return (
           <BeerCardItem
+            key={beer.id}
             imageUrl={beer.image_url}
             name={beer.name}
             isFavorite

@@ -12,3 +12,8 @@ export const getBeersLoading = (isLoading:boolean) => ({
   type: ACTION_TYPES.GET_BEERS_LOADING,
   payload: isLoading,
 })
+
+export const getBeersSeerch = (query: string) => ({
+  type: ACTION_TYPES.GET_BEERS_LOADING,
+  payload: query,
+})

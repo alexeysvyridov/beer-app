@@ -4,7 +4,8 @@ import { RootReducerState } from "../reducers";
 type BeersStateSelector = {
   beers: any, // TO DO change type
   isLoading: boolean,
-  error?: string,  
+  error?: string,
+  query: string,
 }
 
 export const useBeersState = ():BeersStateSelector => {
@@ -13,6 +14,7 @@ export const useBeersState = ():BeersStateSelector => {
       beers: state.beers.beersValues,
       isLoading: state.beers.isLoading,
       error: state.beers.error,
+      query: state.beers.query,
     }
   })
 }
