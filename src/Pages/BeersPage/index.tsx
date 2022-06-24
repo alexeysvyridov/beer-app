@@ -1,30 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Beers } from '../../Components/Beers'
+import { Loader } from '../../Components/Loader';
 import { ACTION_TYPES } from '../../store/actionTypes';
 import { useBeersState } from '../../store/selectors'
 
 export const BeersPage = (): JSX.Element => {
-  const { beers } = useBeersState();
+  const { beers, isLoading, error, query } = useBeersState();
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const handleChangePage = (page: number) => {
-    console.log(page)
     setCurrentPage(page)
   }
 
   useEffect(() => {
     dispatch({
       type: ACTION_TYPES.GET_BEERS_FETCH,
-      payload: currentPage,
+      payload: {
+        currentPage,
+        food: query,
+      },
     })
-  }, [currentPage])
+  }, [currentPage, query, dispatch])
 
-  return (
-    <Beers
-      beers={beers}
-      currentPage={currentPage}
-      onChagePage={handleChangePage}
-    />
-  )
+  const renderBeers = () => {
+    if (isLoading) {
+      return (
+        <Loader />
+      )
+    }
+
+    return (
+      <Beers
+        beers={beers || []}
+        currentPage={currentPage}
+        onChagePage={handleChangePage}
+        error={error}
+      />
+    )
+  }
+
+  return renderBeers()
 }

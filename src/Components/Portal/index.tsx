@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import ReactDOM from 'react-dom';
 type PortalProps = {
   children: React.ReactNode,
-  el: string,
   className: string,
 }
 

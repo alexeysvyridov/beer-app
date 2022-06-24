@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { ButtonSubmit, Container, IconWrapper, Input } from './styled'
 import SearchIcon from '@mui/icons-material/Search';
+import { useDispatch } from 'react-redux';
+import { ACTION_TYPES } from '../../../store/actionTypes';
 
 export const BeersSearchBar = (): JSX.Element => {
+  const dispatch = useDispatch();
   const [value, setValue] = useState('');
 
   const handleChangevalue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,7 +13,12 @@ export const BeersSearchBar = (): JSX.Element => {
   }
 
   const handleSubmit = () => {
-    // to do implement
+    dispatch({
+      type: ACTION_TYPES.FETCH_SEARCH_BEER,
+      payload: {
+        food: value,
+      },
+    })
   }
 
   return (
@@ -23,7 +31,10 @@ export const BeersSearchBar = (): JSX.Element => {
         value={value}
         onChange={handleChangevalue}
       />
-      <ButtonSubmit type="button" onClick={handleSubmit}>
+      <ButtonSubmit
+        variant="contained"
+        onClick={handleSubmit}
+      >
         Submit
       </ButtonSubmit>
     </Container>

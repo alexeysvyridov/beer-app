@@ -8,3 +8,34 @@ export const getBeersFailur = (error: string) => ({
   type: ACTION_TYPES.GET_BEERS_FAILUR,
   error,
 })
+export const getBeersLoading = (isLoading:boolean) => ({
+  type: ACTION_TYPES.GET_BEERS_LOADING,
+  payload: isLoading,
+})
+
+export const getBeersSeerch = (query: string) => ({
+  type: ACTION_TYPES.GET_BEERS_LOADING,
+  payload: query,
+})
+
+export const addToFavorite = (favorite: BeersValues) => ({
+  type: ACTION_TYPES.ADD_TO_FAVORITE,
+  payload: favorite,
+})
+export const removeFromFavorite = (favorite: BeersValues) => ({
+  type: ACTION_TYPES.REMOVE_FAVORITE,
+  payload: favorite,
+})
+export const fetchFavorite = (favoriteId: string) => ({
+  type: ACTION_TYPES.ADD_TO_FAVORITE_FETCH,
+  payload: favoriteId,
+})
+
+export const removeAllFavorites = () => ({
+  type: ACTION_TYPES.REMOVE_FAVORITE_ALL,
+})
+
+export const addRating = (beerRating: RatingObj) => ({
+  type: ACTION_TYPES.ADD_RATING,
+  payload: beerRating
+})
