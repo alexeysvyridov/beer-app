@@ -26,26 +26,36 @@ export const BeerCardItem = ({
   const renderButton = () => {
     if (isFavorite) {
       return (
-        <Favorite isFavorite={true} onClick={onRemoveFavorite}>
+        <Favorite
+          variant="contained"
+          isFavorite={true}
+          onClick={onRemoveFavorite}
+          color="error"
+        >
           Remove from favorite
         </Favorite>
       )
     }
     return (
-      <Favorite isFavorite={false} onClick={onAddToFavorite}>
+      <Favorite
+        isFavorite={false}
+        onClick={onAddToFavorite}
+        variant="contained"
+        color="primary"
+      >
         Add to favorite
       </Favorite>
     )
   }
   return (
     <Card title={`Show more about ${name}`} onClick={onOpenClick}>
-      <CardImage imageUrl={imageUrl} />
       <CardRow>
+        <CardImage imageUrl={imageUrl} />
         <CardTitle>
           {name}
         </CardTitle>
-        {renderButton()}
       </CardRow>
+      {renderButton()}
       {withRaiting && (
         <Stack spacing={1} onClick={(e) => e.stopPropagation()}>
           <Rating name="half-rating" defaultValue={2.5} precision={0.5} />

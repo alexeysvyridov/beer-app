@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -22,7 +23,7 @@ export const Input = styled.input`
   border-radius: 8px;
 `;
 
-export const ButtonSubmit = styled.button`
+export const ButtonSubmit = styled(Button)`
   height: 35px;
   width: 150px;
   margin: 8px;

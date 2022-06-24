@@ -31,7 +31,10 @@ export const BeersSearchBar = (): JSX.Element => {
         value={value}
         onChange={handleChangevalue}
       />
-      <ButtonSubmit type="button" onClick={handleSubmit}>
+      <ButtonSubmit
+        variant="contained"
+        onClick={handleSubmit}
+      >
         Submit
       </ButtonSubmit>
     </Container>
