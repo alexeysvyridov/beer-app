@@ -6,12 +6,9 @@ export const Container = styled.div`
   height: 50px;
   border: 1px solid  rgb(19, 15, 53);
   border-radius: 4px;
-  margin: 8px;
   padding: 16px;
   gap: 10px;
   width 600px;
-  margin: 0px auto;
-  margin-top: 25px;
 `;
 export const IconWrapper = styled.div`
   width: 25px;

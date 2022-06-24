@@ -3,6 +3,7 @@ import { AlertStack } from '../Mui/AlertStack'
 import { BeerCards } from './BeerCards'
 import { BeerPagination } from './BeerPagination'
 import { BeersSearchBar } from './BeersSearchBar'
+import { BeersContainer } from './styled'
 type BeersProps = {
   beers: BeersValues[],
   currentPage: number,
@@ -18,13 +19,13 @@ export const Beers = ({
 
   return (
     <div>
-      <div>
+      <BeersContainer>
+        <BeersSearchBar />
         <BeerPagination
           onChagePage={onChagePage}
           currentPage={currentPage}
         />
-        <BeersSearchBar />
-      </div>
+      </BeersContainer>
       {error && (
         <AlertStack error={error} />
       )}

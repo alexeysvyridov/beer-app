@@ -37,6 +37,5 @@ export const CardRow = styled.div`
 `;
 
 export const Favorite = styled.button<{isFavorite: boolean}>`
-  color: ${({isFavorite}) => isFavorite ? 'yellow' : 'none'};
   cursor: pointer;
 `;  

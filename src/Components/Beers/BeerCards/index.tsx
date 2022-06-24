@@ -8,9 +8,11 @@ import { CardsContainer } from './styled'
 
 type BeerCardsProps = {
   beers: BeersValues[];
+  withRaiting?: boolean,
 }
 export const BeerCards = ({
   beers,
+  withRaiting,
 }: BeerCardsProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBeer, setSelectedBeer] = useState(null);
@@ -54,6 +56,7 @@ export const BeerCards = ({
               handleRemoveFromFavorite(beer)
             }}
             imageUrl={beer.image_url}
+            withRaiting={withRaiting}
             name={beer.name}
             isFavorite={checkIfFavorite(beer)}
             onOpenClick={() => {
@@ -72,4 +75,8 @@ export const BeerCards = ({
       )}
     </CardsContainer>
   )
+}
+
+BeerCards.defaultProps = {
+  withRaiting: false,
 }
