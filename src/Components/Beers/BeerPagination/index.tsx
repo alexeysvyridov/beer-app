@@ -1,4 +1,6 @@
+import { Button } from '@mui/material'
 import React from 'react'
+import { ButtonContainer } from './styled'
 type BeerPaginationProps = {
   currentPage: number,
   onChagePage: (page: number) => void,
@@ -17,9 +19,13 @@ export const BeerPagination = ({
 
 
   return (
-    <div>
-      <button type="button" onClick={handlePrevPage}>Prev</button>
-      <button type="button" onClick={handleNextPage}>Next</button>
-    </div>
+    <ButtonContainer>
+      <Button variant="outlined" onClick={handlePrevPage}>Prev</Button>
+      <Button variant="outlined"
+        color="success"
+        onClick={handleNextPage}>
+        Next
+      </Button>
+    </ButtonContainer>
   )
 }
