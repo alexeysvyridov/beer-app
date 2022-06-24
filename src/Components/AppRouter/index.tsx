@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
+    Navigate,
 } from 'react-router-dom';
 import { ROUTES } from '../../consts';
 import { BeersPage } from '../../Pages/BeersPage';
@@ -23,6 +24,7 @@ const AppRouter = (): JSX.Element => {
             <Routes>
                 <Route path={ROUTES.BROWSE_BEERS} element={<BeersPage />} />
                 <Route path={ROUTES.FAVORITE_BEERS} element={<FavoritePage />} />
+                <Route path="/" element={<Navigate to="/beers" replace={true} />} />
             </Routes>
         </Router>
     )
