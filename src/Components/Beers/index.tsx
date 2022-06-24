@@ -4,7 +4,7 @@ import { BeerCards } from './BeerCards'
 import { BeerPagination } from './BeerPagination'
 import { BeersSearchBar } from './BeersSearchBar'
 type BeersProps = {
-  beers: any // TO DO change type
+  beers: BeersValues[],
   currentPage: number,
   onChagePage: (page: number) => void,
   error?: string,

@@ -7,6 +7,8 @@ type BeerCardItemProps = {
   name: string,
   isFavorite: boolean,
   onOpenClick: () => void,
+  onAddToFavorite: (e: React.FormEvent) => void,
+  onRemoveFavorite: (e: React.FormEvent) => void,
 }
 
 export const BeerCardItem = ({
@@ -14,6 +16,8 @@ export const BeerCardItem = ({
   name,
   isFavorite,
   onOpenClick,
+  onAddToFavorite,
+  onRemoveFavorite,
 }: BeerCardItemProps): JSX.Element => {
   return (
     <Card title={`Show more about ${name}`} onClick={onOpenClick}>
@@ -22,7 +26,7 @@ export const BeerCardItem = ({
         <CardTitle>
           {name}
         </CardTitle>
-        <Favorite isFavorite={isFavorite}>
+        <Favorite isFavorite={isFavorite} onClick={isFavorite ? onRemoveFavorite : onAddToFavorite}>
           <StarIcon />
         </Favorite>
       </CardRow>

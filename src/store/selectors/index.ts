@@ -2,11 +2,13 @@ import { useSelector } from "react-redux";
 import { RootReducerState } from "../reducers";
 
 type BeersStateSelector = {
-  beers: any, // TO DO change type
+  beers: BeersValues[],
   isLoading: boolean,
   error?: string,
   query: string,
+  favorites: BeersValues[],
 }
+export const getBeers = (state: RootReducerState):BeersValues[] => state.beers.beersValues;
 
 export const useBeersState = ():BeersStateSelector => {
   return useSelector((state: RootReducerState) => {
@@ -15,6 +17,7 @@ export const useBeersState = ():BeersStateSelector => {
       isLoading: state.beers.isLoading,
       error: state.beers.error,
       query: state.beers.query,
+      favorites: state.beers.favorites,
     }
   })
 }

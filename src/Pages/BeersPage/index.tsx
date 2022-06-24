@@ -1,4 +1,3 @@
-import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Beers } from '../../Components/Beers'
@@ -22,7 +21,7 @@ export const BeersPage = (): JSX.Element => {
         food: query,
       },
     })
-  }, [currentPage])
+  }, [currentPage, query, dispatch])
 
   const renderBeers = () => {
     if (isLoading) {
@@ -33,7 +32,7 @@ export const BeersPage = (): JSX.Element => {
 
     return (
       <Beers
-        beers={beers}
+        beers={beers || []}
         currentPage={currentPage}
         onChagePage={handleChangePage}
         error={error}

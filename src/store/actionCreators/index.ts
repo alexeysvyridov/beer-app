@@ -17,3 +17,16 @@ export const getBeersSeerch = (query: string) => ({
   type: ACTION_TYPES.GET_BEERS_LOADING,
   payload: query,
 })
+
+export const addToFavorite = (favorite: BeersValues) => ({
+  type: ACTION_TYPES.ADD_TO_FAVORITE,
+  payload: favorite,
+})
+export const removeFromFavorite = (favorite: BeersValues) => ({
+  type: ACTION_TYPES.REMOVE_FAVORITE,
+  payload: favorite,
+})
+export const fetchFavorite = (favoriteId: string) => ({
+  type: ACTION_TYPES.ADD_TO_FAVORITE_FETCH,
+  payload: favoriteId,
+})
