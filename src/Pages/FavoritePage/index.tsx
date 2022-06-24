@@ -1,5 +1,4 @@
 import React from 'react'
-import { BeerCards } from '../../Components/Beers/BeerCards';
 import { Favorites } from '../../Components/Favorites';
 import { useFavoritesState } from '../../store/selectors'
 

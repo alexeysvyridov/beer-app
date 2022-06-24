@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addToFavorite, removeFromFavorite } from '../../../store/actionCreators';
-import { useBeersState, useFavoritesState } from '../../../store/selectors';
+import { useFavoritesState } from '../../../store/selectors';
 import { BeerModal } from '../../BeerModal';
 import { BeerCardItem } from './BeerCardItem';
 import { CardsContainer } from './styled'
