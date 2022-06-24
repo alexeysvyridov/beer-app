@@ -12,6 +12,19 @@ const initialState:beerState = {
 }
 export const beerReducer = (state = initialState, action: AnyAction) => {
   switch(action.type) {
+
+    case ACTION_TYPES.GET_BEERS_LOADING: {
+       return {
+        ...state,
+        isLoading: action.payload,
+      }
+    }
+    case ACTION_TYPES.GET_BEERS_FAILUR: {
+       return {
+        ...state,
+        error: action.payload,
+      }
+    }
     case ACTION_TYPES.GET_BEERS_SUCCESS: {
       return {
         ...state,

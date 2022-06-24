@@ -8,3 +8,7 @@ export const getBeersFailur = (error: string) => ({
   type: ACTION_TYPES.GET_BEERS_FAILUR,
   error,
 })
+export const getBeersLoading = (isLoading:boolean) => ({
+  type: ACTION_TYPES.GET_BEERS_LOADING,
+  payload: isLoading,
+})
