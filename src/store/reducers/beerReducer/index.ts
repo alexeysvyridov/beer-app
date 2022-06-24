@@ -34,6 +34,12 @@ export const beerReducer = (state = initialState, action: AnyAction) => {
         favorites: state.favorites.filter((favorite: BeersValues) => favorite.id !== action.payload.id)
       }
     }
+    case ACTION_TYPES.REMOVE_FAVORITE_ALL: {
+      return {
+        ...state,
+        favorites: [],
+      }
+    }
     case ACTION_TYPES.GET_BEERS_FAILUR: {
        return {
         ...state,

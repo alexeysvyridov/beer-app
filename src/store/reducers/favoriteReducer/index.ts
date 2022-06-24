@@ -3,6 +3,7 @@ import { ACTION_TYPES } from '../../actionTypes'
 type favoriteState = {
   isLoading: boolean,
   error?: string,
+  // raitings: [],
 }
 const initialState:favoriteState = {
   isLoading: false,

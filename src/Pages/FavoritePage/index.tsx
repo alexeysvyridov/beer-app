@@ -1,5 +1,6 @@
 import React from 'react'
 import { BeerCards } from '../../Components/Beers/BeerCards';
+import { Favorites } from '../../Components/Favorites';
 import { useBeersState } from '../../store/selectors'
 
 export const FavoritePage = (): JSX.Element => {
@@ -12,6 +13,8 @@ export const FavoritePage = (): JSX.Element => {
   }
 
   return (
-    <BeerCards beers={favorites} withRaiting />
+    <Favorites
+      beers={favorites}
+    />
   )
 }

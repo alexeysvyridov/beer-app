@@ -30,3 +30,7 @@ export const fetchFavorite = (favoriteId: string) => ({
   type: ACTION_TYPES.ADD_TO_FAVORITE_FETCH,
   payload: favoriteId,
 })
+
+export const removeAllFavorites = () => ({
+  type: ACTION_TYPES.REMOVE_FAVORITE_ALL,
+})
