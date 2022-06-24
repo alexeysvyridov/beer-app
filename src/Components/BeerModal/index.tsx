@@ -1,7 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
 import { Portal } from '../Portal';
-import CancelIcon from '@mui/icons-material/Cancel';
 import { Description, FoodItem, Image, ImageWrapper, ModalBody, ModalContainer, ModalContent, ModalTitle } from './styled';
 type BeerModalProps = {
   isOpen: boolean,
@@ -16,7 +14,6 @@ export const BeerModal = ({
 }: BeerModalProps): JSX.Element => {
   return (
     <Portal
-      el="div"
       className="modal-root"
     >
       {isOpen && (
